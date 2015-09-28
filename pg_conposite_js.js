@@ -1,4 +1,4 @@
-var fromJsArrayToLocale = function (arr) {
+var fromJsArrayToPG = function (arr) {
     var result = '(\"{';
     for (var i = 0; i < arr.length; i++) {
         if (i) result+=','; //if not first
@@ -15,7 +15,7 @@ var fromJsArrayToLocale = function (arr) {
 }
 
 
-var parseFromLocaleToArray = function(value) {
+var parseFromPgToArray = function(value) {
     if (!value) {
         return [""];
     }
@@ -42,7 +42,7 @@ var parseFromLocaleToArray = function(value) {
     var prev_i = 0;
     while (true && value[i]) {
         if (prev_i == i) {
-            console.log('bad locale on: '+value);
+            console.log('bad value on: '+value);
             break;
         }
         prev_i = i;
@@ -93,7 +93,7 @@ var parseFromLocaleToArray = function(value) {
             i++;
         }
         if (i>=value.length) {
-            console.error('not pg locale');
+            console.error('not pg composite');
             return;
         }
     }
